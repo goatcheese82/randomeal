@@ -1,5 +1,3 @@
 require "randomeal/version"
-
-module Randomeal
-  # Your code goes here...
-end
+require "randomeal/cli"
+require "randomeal/food.rb"
