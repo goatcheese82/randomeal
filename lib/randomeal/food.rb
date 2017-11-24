@@ -15,7 +15,6 @@ class Randomeal::Food
         ingredient = recipe.css('.recipe-ingredients')
         ingredient.each{|i| @ingredients << recipe.text.strip}
 
-        @ingredients
-
+        puts @ingredients
     end
 end

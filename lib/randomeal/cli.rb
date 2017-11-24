@@ -26,15 +26,15 @@ class Randomeal::CLI
 
         input = gets.strip.downcase
 
-        if input == "1" || "chicken"
+        if input == "1" || input == "chicken"
             chicken
-        elsif input == "2" || "burgers"
+        elsif input == "2" || input == "burgers"
             burgers
-        elsif input == "3" || "pasta"
+        elsif input == "3" || input ==  "pasta"
             pasta
-        elsif input == "4" || "salad"
+        elsif input == "4" || input == "salad"
             salad
-        elsif input == "5" || "desert"
+        elsif input == "5" || input == "desert"
             dessert
         else puts "That selection is not valid, please select from the list or 'exit'"
         end
@@ -42,6 +42,7 @@ class Randomeal::CLI
     end
 
     def chicken
+        
     end
 
 
