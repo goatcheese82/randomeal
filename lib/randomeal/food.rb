@@ -15,17 +15,8 @@ class Randomeal::Food
 
 
     ## scrapes each option to object
-    def scrape_ingredients
-        @new_food = "http://seriouseats.com/tags/recipes/#{@option}"
-        recipe = Nokogiri::HTML(open("#{@new_food}"))
-
-        ingredient = recipe.css('.recipe-ingredients')
-        ingredient.each{|i| @ingredients << recipe.text.strip}
-
-        puts @ingredients
-    end
     def scrape_url        
-            recipe_url = Nokogiri::HTML(open("#{@option}"))
+            recipe_url = Nokogiri::HTML(open("http://seriouseats.com/tags/recipes/#{@option}"))
         
             recipe_links = []
             links = recipe_url.css('.module__link')
@@ -34,5 +25,16 @@ class Randomeal::Food
             recipe_links.sample
             
     end
+
+    def scrape_ingredients
+        recipe = Nokogiri::HTML(open("#{@url}"))
+
+        title = recipe.css('.recipe-title').text.strip
+        puts title
+        title
+    end
+
+    def scrape_title
+        recipe = Nokogiri::HTML(open("#{@url}"))
 
 end
