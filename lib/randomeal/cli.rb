@@ -31,7 +31,7 @@ class Randomeal::CLI
         if input == "1" || input == "chicken"
             @selection = Randomeal::Food.new("chicken")
         elsif input == "2" || input == "burgers"
-            @selection = Randomeal::Food.new("burgers")
+            @selection = Randomeal::Food.new("burger")
         elsif input == "3" || input ==  "pasta"
             @selection = Randomeal::Food.new("pasta")            
         elsif input == "4" || input == "salad"
@@ -55,7 +55,19 @@ class Randomeal::CLI
 
 
     def secondary_menu
-        
+        input = gets.strip.downcase
+
+        if input == "1"
+            puts @selection.ingredients
+        elsif input == "2"
+            puts @selection.directions
+        elsif input == "3"
+            self.menu
+        else
+            puts "please make a selection"
+        end
+
+        puts "Would you like to make another selection?"
     end
 
 
