@@ -6,7 +6,7 @@ class Randomeal::CLI
         menu
     end
 
-    def menu
+    def options
         puts <<-MENU
 
         What would you like to eat?
@@ -17,6 +17,12 @@ class Randomeal::CLI
         4. Salad
         5. Dessert
         MENU
+
+    end
+
+    def menu
+
+        options
 
         input = gets.strip.downcase
 
@@ -36,7 +42,8 @@ class Randomeal::CLI
     end
 
     def chicken
-        
+    end
+
 
 
 end
