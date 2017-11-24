@@ -1,9 +1,13 @@
 class Randomeal::CLI
 
+    attr_accessor :selection
+
     def call
         puts "Thank you for using Randomeal!  Your options are loading."
-        Randomeal::Food.scrape
+        options
         menu
+        secondary_menu_options
+        secondary_menu
     end
 
     def options
@@ -22,26 +26,35 @@ class Randomeal::CLI
 
     def menu
 
-        options
-
         input = gets.strip.downcase
 
         if input == "1" || input == "chicken"
-            chicken
+            @selection = Randomeal::Food.new("chicken")
         elsif input == "2" || input == "burgers"
-            burgers
+            @selection = Randomeal::Food.new("burgers")
         elsif input == "3" || input ==  "pasta"
-            pasta
+            @selection = Randomeal::Food.new("pasta")            
         elsif input == "4" || input == "salad"
-            salad
-        elsif input == "5" || input == "desert"
-            dessert
+            @selection = Randomeal::Food.new("salad")            
+        elsif input == "5" || input == "dessert"
+            @selection = Randomeal::Food.new("dessert")            
         else puts "That selection is not valid, please select from the list or 'exit'"
         end
 
     end
 
-    def chicken
+    def secondary_menu_options
+        puts <<-SECONDARY
+        Your meal is #{@selection.title}
+        1. For ingredients
+        2. For directions
+        3. If you don't want to eat #{@selection.title}
+        'exit' to exit
+        SECONDARY
+    end
+
+
+    def secondary_menu
         
     end
 
